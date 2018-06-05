@@ -54,8 +54,8 @@ namespace Kinect2FaceBasics_NET
         {
             if (Bitmap == null)
             {
-                _width = frame.FrameDescription.Width;
-                _height = frame.FrameDescription.Height;
+                _width = 1920;
+                _height = 1080;
                 _pixels = new byte[_width * _height * 4];
                 Bitmap = new WriteableBitmap(_width, _height, 96.0, 96.0, PixelFormats.Bgr32, null);
             }
@@ -104,7 +104,6 @@ namespace Kinect2FaceBasics_NET
         public static WriteableBitmap ToBitmap(this ColorFrame frame)
         {
             _bitmapGenerator.Update(frame);
-
             return _bitmapGenerator.Bitmap;
         }
 

@@ -33,6 +33,7 @@ namespace Kinect2FaceBasics_NET
 
         public MainWindow()
         {
+            System.Diagnostics.Debug.WriteLine("Starting");
             InitializeComponent();
 
             _sensor = KinectSensor.GetDefault();
@@ -87,6 +88,7 @@ namespace Kinect2FaceBasics_NET
                     {
                         if (body != null)
                         {
+                            System.Diagnostics.Debug.WriteLine("Body: " + body.TrackingId);
                             // 4) Assign a tracking ID to the face source
                             _faceSource.TrackingId = body.TrackingId;
                         }
@@ -107,7 +109,7 @@ namespace Kinect2FaceBasics_NET
                     if (result != null)
                     {
                         // 5) Do magic!
-
+                        System.Diagnostics.Debug.WriteLine("Face: " + result.TrackingId);
                         // Get the face points, mapped in the color space.
                         var eyeLeft = result.FacePointsInColorSpace[FacePointType.EyeLeft];
                         var eyeRight = result.FacePointsInColorSpace[FacePointType.EyeRight];
